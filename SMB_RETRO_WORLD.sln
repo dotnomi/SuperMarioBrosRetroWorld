@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMB_RETRO_WORLD", "SMB_RETRO_WORLD.csproj", "{A97BE695-FBD9-4CAB-9B06-C3CF4D579AC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A97BE695-FBD9-4CAB-9B06-C3CF4D579AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A97BE695-FBD9-4CAB-9B06-C3CF4D579AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A97BE695-FBD9-4CAB-9B06-C3CF4D579AC0}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{A97BE695-FBD9-4CAB-9B06-C3CF4D579AC0}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{A97BE695-FBD9-4CAB-9B06-C3CF4D579AC0}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{A97BE695-FBD9-4CAB-9B06-C3CF4D579AC0}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

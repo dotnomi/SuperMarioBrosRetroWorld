@@ -1,0 +1,156 @@
+[gd_scene load_steps=22 format=3 uid="uid://datgwijisoto5"]
+
+[ext_resource type="Script" path="res://scripts/QuestionMarkBlock.cs" id="1_krupk"]
+[ext_resource type="Texture2D" uid="uid://b7hc0vovx0rnd" path="res://assets/grass-block-tileset.png" id="2_adhdm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsa17"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f71ot"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2ukx"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw705"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncecl"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgf7p"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av8m0"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op4mk"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(112, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68wcy"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a74ot"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg2lc"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnjdg"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uyqd"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq5t0"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thweu"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whyva"]
+atlas = ExtResource("2_adhdm")
+region = Rect2(112, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0opc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsa17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f71ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2ukx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw705")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncecl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgf7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av8m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op4mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68wcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a74ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg2lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnjdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uyqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq5t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thweu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whyva")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsk4i"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhilg"]
+size = Vector2(16, 1)
+
+[node name="QuestionMarkBlock" type="StaticBody2D"]
+script = ExtResource("1_krupk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0opc4")
+autoplay = "default"
+frame_progress = 0.533719
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dsk4i")
+
+[node name="BounceTimer" type="Timer" parent="."]
+wait_time = 0.133
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_qhilg")
+debug_color = Color(0.946926, 6.90736e-06, 0.585505, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

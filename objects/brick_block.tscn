@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bda5ayqjcfqp7"]
+
+[ext_resource type="PackedScene" uid="uid://co68neqrihwpw" path="res://objects/block.tscn" id="1_tulb7"]
+[ext_resource type="Texture2D" uid="uid://b7hc0vovx0rnd" path="res://assets/grass-block-tileset.png" id="2_hx48e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5e8g"]
+atlas = ExtResource("2_hx48e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkmls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5e8g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BrickBlock" instance=ExtResource("1_tulb7")]
+_isHittable = true
+_hittableSides = 0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_mkmls")

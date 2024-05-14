@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://co68neqrihwpw"]
+
+[ext_resource type="Script" path="res://scripts/block.cs" id="1_nfe33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5re"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7cda"]
+size = Vector2(16, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxtlf"]
+size = Vector2(1, 14)
+
+[node name="Block" type="StaticBody2D"]
+script = ExtResource("1_nfe33")
+_initialBounceSpeed = -180.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_7g5re")
+
+[node name="TopHitZone" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="TopCollisionShape2D" type="CollisionShape2D" parent="TopHitZone"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_k7cda")
+debug_color = Color(0.756719, 0.18731, 1, 0.42)
+
+[node name="BottomHitZone" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="BottomCollisionShape2D" type="CollisionShape2D" parent="BottomHitZone"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_k7cda")
+debug_color = Color(0.756719, 0.18731, 1, 0.42)
+
+[node name="LeftHitZone" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="LeftHitZone"]
+position = Vector2(-7.5, 0)
+shape = SubResource("RectangleShape2D_mxtlf")
+debug_color = Color(0.756863, 0.188235, 1, 0.419608)
+
+[node name="RightHitZone" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="RightCollisionShape2D" type="CollisionShape2D" parent="RightHitZone"]
+position = Vector2(7.5, 0)
+shape = SubResource("RectangleShape2D_mxtlf")
+debug_color = Color(0.756863, 0.188235, 1, 0.419608)
+
+[node name="BounceTimer" type="Timer" parent="."]
+wait_time = 0.09
+one_shot = true
+
+[connection signal="area_entered" from="TopHitZone" to="." method="_OnTopHitZoneEntered"]
+[connection signal="area_entered" from="BottomHitZone" to="." method="_OnBottomHitZoneEntered"]
+[connection signal="area_entered" from="LeftHitZone" to="." method="_OnLeftHitZoneEntered"]
+[connection signal="area_entered" from="RightHitZone" to="." method="_OnRightHitZoneEntered"]

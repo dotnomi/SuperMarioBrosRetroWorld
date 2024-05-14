@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d1by8vhtfy3ve" path="res://assets/editor_tileset.png" id="1_16l75"]
 [ext_resource type="Script" path="res://scripts/entry_point.cs" id="2_yriun"]
-[ext_resource type="PackedScene" uid="uid://bg55tcrjdfnvw" path="res://objects/physics_player.tscn" id="3_nanfu"]
+[ext_resource type="PackedScene" uid="uid://d2yj6nqdtj2xy" path="res://scenes/player.tscn" id="3_ghhd2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rm0c2"]
 atlas = ExtResource("1_16l75")
@@ -22,14 +22,14 @@ animations = [{
 [node name="EntryPoint" type="AnimatedSprite2D" node_paths=PackedStringArray("_player")]
 sprite_frames = SubResource("SpriteFrames_hyqcq")
 script = ExtResource("2_yriun")
-_player = NodePath("Player")
+_player = NodePath("CharacterBody2D")
 
-[node name="Player" parent="." instance=ExtResource("3_nanfu")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_ghhd2")]
 visible = false
 position = Vector2(0, -8)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-1, 2)
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-1, -6)
 zoom = Vector2(3, 3)
 limit_left = -70
 limit_top = -120

@@ -12,7 +12,12 @@ public partial class block : StaticBody2D
 	private Node2D _sprite;
 
 	private Vector2 _originalSpritePosition;
+	private Vector2 _originalSpriteScale;
+	private int _originalZIndex;
 	private float _bounceSpeed;
+
+	private float _maxScale = 1.25f;
+	private float _scale = 1f;
 	
 	public override void _Ready()
 	{
@@ -20,6 +25,9 @@ public partial class block : StaticBody2D
 		_sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 		_originalSpritePosition = _sprite.Position;
+		_originalSpriteScale = _sprite.Scale;
+		_originalZIndex = _sprite.ZIndex;
+		_scale = _originalSpriteScale.X;
 	}
 	
 	public override void _Process(double delta)
@@ -30,11 +38,17 @@ public partial class block : StaticBody2D
 			{
 				_bounceSpeed = 0f;
 				_sprite.Position = _originalSpritePosition;
+				_sprite.Scale = _originalSpriteScale;
+				_sprite.ZIndex = _originalZIndex;
+				_scale = _originalSpriteScale.X;
 			}
 			else
 			{
+				if (_scale < _maxScale) _scale += (float) delta * 5;
 				_bounceSpeed += _gravity * (float) delta;
 				AddYPosition(_bounceSpeed * (float) delta);
+				_sprite.ZIndex = _originalZIndex + 1;
+				//_sprite.Scale = new Vector2(_scale, _scale);
 			}
 		}
 	}

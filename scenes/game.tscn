@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d30ttbfttxqut"]
+[gd_scene load_steps=12 format=3 uid="uid://d30ttbfttxqut"]
 
 [ext_resource type="Texture2D" uid="uid://bjahq3tltnav1" path="res://assets/grass-tileset.png" id="3_du0on"]
 [ext_resource type="PackedScene" uid="uid://2l5muhvggkww" path="res://objects/Coin.tscn" id="4_h7gbl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://w4e6hfs1umr5" path="res://objects/used_block.tscn" id="5_s7gt3"]
 [ext_resource type="PackedScene" uid="uid://cpjtf4v0uw2if" path="res://objects/entry_point.tscn" id="6_43d67"]
 [ext_resource type="PackedScene" uid="uid://ci2o4a5fp1nsp" path="res://objects/question_mark_block.tscn" id="6_axae6"]
+[ext_resource type="PackedScene" uid="uid://dfnwwu4vydx7h" path="res://entities/gombaenemy.tscn" id="7_8di4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjtic"]
 texture = ExtResource("3_du0on")
@@ -158,3 +159,11 @@ shape = SubResource("RectangleShape2D_ljx3u")
 
 [node name="EntryPoint2" parent="." instance=ExtResource("6_43d67")]
 position = Vector2(24, -8)
+
+[node name="Enemy" parent="." instance=ExtResource("7_8di4s")]
+
+[node name="Enemy2" parent="." instance=ExtResource("7_8di4s")]
+position = Vector2(449, 91)
+
+[node name="Enemy3" parent="." instance=ExtResource("7_8di4s")]
+position = Vector2(420, 91)

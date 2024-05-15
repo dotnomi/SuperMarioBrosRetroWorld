@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfnwwu4vydx7h"]
+
+[ext_resource type="Script" path="res://scenes/enemylogic.gd" id="1_x2lvu"]
+[ext_resource type="Texture2D" uid="uid://b28nrukm7pxsc" path="res://assets/super-mario-dummy.png" id="2_i38i4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idx8r"]
+size = Vector2(18.4184, 34.5407)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlu4h"]
+size = Vector2(24.5539, 9.53323)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ui4h"]
+size = Vector2(5.78535, 3.35324)
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(80, -5)
+scale = Vector2(1.41635, 0.314689)
+script = ExtResource("1_x2lvu")
+speed = 6250.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i38i4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.92, 0.92)
+shape = SubResource("RectangleShape2D_idx8r")
+
+[node name="Wallfinder" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wallfinder"]
+position = Vector2(0, -6.35548)
+scale = Vector2(0.747623, 1.107)
+shape = SubResource("RectangleShape2D_xlu4h")
+
+[node name="Playerfinder" type="Area2D" parent="."]
+position = Vector2(-56.4832, 15.8887)
+scale = Vector2(0.706039, 3.17774)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Playerfinder"]
+position = Vector2(79, -9)
+scale = Vector2(2.09893, 2.18006)
+shape = SubResource("RectangleShape2D_4ui4h")
+
+[connection signal="body_entered" from="Wallfinder" to="." method="_on_wallfinder_body_entered"]
+[connection signal="body_entered" from="Playerfinder" to="." method="_on_playerfinder_body_entered"]

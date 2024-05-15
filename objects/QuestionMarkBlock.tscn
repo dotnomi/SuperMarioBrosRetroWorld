@@ -135,7 +135,7 @@ script = ExtResource("1_krupk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0opc4")
 autoplay = "default"
-frame_progress = 0.533719
+frame_progress = 0.750197
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dsk4i")
